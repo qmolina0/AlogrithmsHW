@@ -19,6 +19,7 @@ def find_max(arr):
 print(find_max(arr)) # Output should be 9
 
 "Question 2"
+# with help from https://www.geeksforgeeks.org/binary-search/
 
 arr2 = [1, 2, 3, 4, 5, 6, 7, 8, 9]
 target = int(input("Enter target number: "))
