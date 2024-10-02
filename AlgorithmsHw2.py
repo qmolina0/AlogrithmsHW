@@ -35,6 +35,8 @@ def merge_sorted_arrays(arr1 , arr2):
             
     return sort
 
+
+# merge_sort() function from https://www.codecademy.com/learn/sorting-algorithms-python/modules/merge-sort-python/cheatsheet
 def merge_sort(lst):
   if len(lst) <= 1:
     return lst
@@ -44,13 +46,14 @@ def merge_sort(lst):
   sleft = merge_sort(left)
   sright = merge_sort(right)
   return merge_sorted_arrays(sleft, sright)
-    
+
+
+#print statements
+
 arr1 = [1, 3, 5]
 arr2 = [2, 4, 6]
 
 print(merge_sorted_arrays(arr1, arr2))
-
-# function from https://www.codecademy.com/learn/sorting-algorithms-python/modules/merge-sort-python/cheatsheet
 
 
 arr = [38, 27, 43, 3, 9, 82, 10]
