@@ -1,0 +1,78 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""
+Created on Mon Nov 18 15:39:52 2024
+
+@author: quentin
+help from: https://discuss.python.org/t/writing-a-binary-search-tree-algorithm-proper-str-self-method-needed/51839  
+"""
+from collections import deque
+
+
+class node:
+    def __init__(self, value):
+        self.value = value
+        self.left = None
+        self.right = None
+
+class binaryTree: 
+    
+    def __init__(self):
+        self.root = None
+        
+    def insert(self, value):
+        new = node(value)
+        if self.root is None:
+            self.root = new
+            return self
+        temp = self.root
+        while True:
+            if new.value == temp.value:
+                return None
+            if new.value < temp.value:
+                if temp.left == None:
+                    temp.left = new
+                    return self
+                temp = temp.left
+            else:
+                if temp.right == None:
+                    temp.right = new
+                    return self
+                temp = temp.right
+    
+    def inorder_dfs(self, node):
+        if node is not None:
+            self.inorder_dfs(node.left)
+            print(node.value)
+            self.inorder_dfs(node.right)
+            
+    def bfs(self,node):
+        if node is not None:
+           queue = deque([node])
+           while queue:
+               current_node = queue.popleft()  
+               print(current_node.value) 
+
+               if current_node.left is not None:
+                   queue.append(current_node.left)
+               
+               if current_node.right is not None:
+                   queue.append(current_node.right)
+            
+            
+n = node(5)
+print(n.value)
+print('\n')
+
+tree = binaryTree()
+tree.insert(10)
+tree.insert(5)
+tree.insert(15)
+tree.insert(7)
+tree.insert(3)
+tree.insert(12)
+tree.insert(18)
+
+tree.inorder_dfs(tree.root)
+print('\n')
+tree.bfs(tree.root)
